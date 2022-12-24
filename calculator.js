@@ -1,15 +1,23 @@
-function add(num1, num2) {
-    return num1 + num2
+function add(...num) {
+    return num.reduce((total, currentNum) => {
+        return total + currentNum;
+    })
 }
 
-function subtract(num1, num2) {
-    return num1 - num2
+function subtract(...num) {
+    return num.reduce((total, currentNum) => {
+        return total - currentNum;
+    })
 }
 
-function multiply(num1, num2) {
-    return num1 * num2
+function multiply(...num) {
+    return num.reduce((total, currentNum) => {
+        return total * currentNum;
+    }, 1)
 }
 
-function divide(num1, num2) {
-    return num1 / num2
+function divide(...num) {
+    return num.reduce((total, currentNum) => {
+        return total / currentNum;
+    })
 }
