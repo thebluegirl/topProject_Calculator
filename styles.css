@@ -12,6 +12,7 @@
     flex-direction: column;
     width: 25rem;
     height: 100vh;
+    min-height: 475px;
     align-items: center;
     background-color: rgba(178, 218, 255, 0.3);
     border-radius: 40px;
@@ -32,4 +33,12 @@ button {
     width: 3.75rem;
     border-radius: 1rem;
     border: none;
+}
+
+.calc-keys {
+    display: flex;
+}
+
+.calc-keys > * > button {
+    margin-bottom: 0.5rem;
 }
