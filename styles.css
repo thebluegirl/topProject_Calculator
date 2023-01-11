@@ -2,11 +2,34 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 .calculator {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
+    width: 25rem;
+    height: 100vh;
     align-items: center;
-    justify-content: center;
+    background-color: rgba(178, 218, 255, 0.3);
+    border-radius: 40px;
+}
+
+.calculator > * {
+    padding: 5%;
+}
+
+.calc-display {
+    width: 90%;
+    height: 20%;
+    text-align: right;
+}
+
+button {
+    height: 3.75rem;
+    width: 3.75rem;
+    border-radius: 1rem;
+    border: none;
 }
