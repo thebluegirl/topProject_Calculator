@@ -25,14 +25,14 @@ function divide(...num) {
     })
 }
 
-function operate(operator, num1, num2) {
+function operate(num1, operator, num2) {
     if (operator === '+'){
         return add(num1, num2);
     } else if (operator === '-'){
         return subtract(num1, num2);
     } else if (operator === '/'){
         return divide(num1, num2);
-    } else if (operator === '*'){
+    } else if (operator === 'x'){
         return multiply(num1, num2);
     }
 }
@@ -40,8 +40,15 @@ function operate(operator, num1, num2) {
 document.addEventListener('click', e => {
     if (e.target.id === 'clr-btn') {
         display.innerHTML = ''
-    }
-    else if (e.target.nodeName === 'BUTTON') {
+    } else if (e.target.id === 'equal-btn') {
+        let ans;
+        let equationParts = document.getElementById('calc-display').textContent.split(/\s/g);
+        ans = operate(Number(equationParts[0]), equationParts[1], Number(equationParts[2])) 
+        display.innerText += ` = ${ans}` 
+    } else if (e.target.tagName === 'BUTTON' && display.textContent.includes('=')){
+        display.innerHTML = ''
+        display.innerText += e.target.textContent
+    } else if (e.target.nodeName === 'BUTTON') {
         display.innerText += e.target.textContent
     }
 })
