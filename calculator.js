@@ -43,7 +43,13 @@ document.addEventListener('click', e => {
     } else if (e.target.id === 'equal-btn') {
         let ans;
         let equationParts = document.getElementById('calc-display').textContent.split(/\s/g);
-        ans = operate(Number(equationParts[0]), equationParts[1], Number(equationParts[2])) 
+        ans = operate(+equationParts[0], equationParts[1],+equationParts[2]) 
+        if (equationParts.length > 3) {
+            for (let i = 3; i < equationParts.length; i += 2){
+                ans = operate(+ans, equationParts[i], +equationParts[i+1])
+                console.log(ans)
+            }
+        }
         display.innerText += ` = ${ans}` 
     } else if (e.target.tagName === 'BUTTON' && display.textContent.includes('=')){
         display.innerHTML = ''
