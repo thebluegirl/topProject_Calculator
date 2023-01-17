@@ -39,11 +39,13 @@ button {
     border: none;
 }
 
-.op-btn {
+.op-btn,
+.del-btns {
     background-color: rgba(173, 216, 255, 0.5);
 }
 
-.op-btn:hover{
+.op-btn:hover,
+.del-btns:hover{
     background-color: #add8ff;
 }
 

@@ -1,5 +1,6 @@
 const display = document.getElementById('calc-display')
-
+const equalBtn = document.getElementById('equal-btn')
+const delBtn = document.getElementById('del-btn')
 
 function add(...num) {
     return num.reduce((total, currentNum) => {
@@ -39,23 +40,30 @@ function operate(num1, operator, num2) {
 
 document.addEventListener('click', e => {
     if (e.target.id === 'clr-btn') {
-        display.innerHTML = ''
-    } else if (e.target.id === 'equal-btn') {
+        display.innerText = ''
+    } 
+    
+    if (e.target.tagName === 'BUTTON' && display.textContent.includes('=')){
+        display.innerText = ''
+        if (e.target === equalBtn){
+            return
+        }
+        display.innerText += e.target.textContent
+    } else if (e.target === equalBtn) {
         let ans;
         let equationParts = document.getElementById('calc-display').textContent.split(/\s/g);
         ans = operate(+equationParts[0], equationParts[1],+equationParts[2]) 
         if (equationParts.length > 3) {
             for (let i = 3; i < equationParts.length; i += 2){
                 ans = operate(+ans, equationParts[i], +equationParts[i+1])
-                console.log(ans)
             }
         }
-        display.innerText += ` = ${ans}` 
-    } else if (e.target.tagName === 'BUTTON' && display.textContent.includes('=')){
-        display.innerHTML = ''
-        display.innerText += e.target.textContent
+        display.innerText += ` \n= ${Math.round(ans * 1000)/1000}` 
     } else if (e.target.nodeName === 'BUTTON') {
         display.innerText += e.target.textContent
     }
 })
 
+delBtn.addEventListener('click', e => {
+    display.innerText = display.innerText.slice(0, display.innerText.length - 2)
+})
