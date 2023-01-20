@@ -52,8 +52,17 @@ button {
     background-color: #add8ff;
 }
 
+.op-btn:active,
+.del-btns:active {
+    background-color: #92dde7;
+}
+
 .num-btn:hover {
     background-color: #d3d3d3;
+}
+
+.num-btn:active {
+    background-color: #818181;
 }
 
 .calc-keys {
