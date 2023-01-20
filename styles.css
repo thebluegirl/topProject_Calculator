@@ -30,6 +30,9 @@ body {
     width: 90%;
     height: 20%;
     text-align: right;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: rgba(211, 211, 211, 0.4);
 }
 
 button {
